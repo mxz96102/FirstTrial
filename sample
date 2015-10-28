@@ -1,0 +1,178 @@
+@@ -0,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script>
+        var score=0;//定义分数变量
+        var placep=0;//定义地点判别
+
+/*定义加分变量*/
+        function count(change) {
+            var change;
+            score = change + score
+        }
+        /*定义地点辨别函数*/
+        function located(place){
+         placep =place
+        }
+        /*定义内容输出*/
+        function result(){
+            var content=document.getElementById("final");
+            var result1;
+            var result2;
+            if (score>=0&&score<=2){
+                result1="生命在于运动，趁自己还年轻，快去尽情挥洒汗水吧！"
+            }else if(score>=3&&score<=5){
+                result1="常常运动是一件好事，只要你付出了，就一定会得到回报，为自己的运动喝彩！！"
+            }else if(score==6||score==7){
+                result1="运动达人的你，可不要自己一个人哦！快快发动起身边的小伙伴们，多多运动哦！"
+            }
+            else{
+                result1="人要诚实哦！"
+            }
+            switch (placep) {
+                case 1:
+                    result2="仔仔在东操等着你来锻炼哦！";
+                    break;
+                case 2:
+                    result2="仔仔在中操等着你来锻炼哦！";
+                    break;
+                case 3:
+                    result2="仔仔在西操等着你来锻炼哦！";
+                    break;
+                default :
+                    result2="仔仔在操场等着你来锻炼哦！";
+                    break
+
+            }
+            content.innerHTML=result1+"<br>"+result2
+        }
+    </script>
+</head>
+
+<body>
+
+<div data-role="page" id="page01">
+    <div data-role="header">
+        <h1>微仔运动测试</h1>
+    </div>
+
+    <div data-role="content">
+        <a href="#page02" data-role="button">点我开始测试</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>一定要诚实的回答问题哦！</h1>
+    </div>
+</div>
+
+<div data-role="page" id="page02">
+    <div data-role="header">
+        <h1>微仔运动测试</h1>
+    </div>
+
+    <div data-role="content">
+        <p>你一周有多长的运动时间呢？</p>
+        <a href="#page03" data-role="button" onclick="count(0)">4小时以下</a>
+        <a href="#page03" data-role="button" onclick="count(1)">4~7小时</a>
+        <a href="#page03" data-role="button" onclick="count(2)">7小时以上</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>一定要诚实的回答问题哦！</h1>
+    </div>
+</div>
+
+<div data-role="page" id="page03">
+    <div data-role="header">
+        <h1>微仔运动测试</h1>
+    </div>
+
+    <div data-role="content">
+        <p>你认为你上体育课的时候……</p>
+        <a href="#page04" data-role="button" onclick="count(0)">大水课，水水就过 </a>
+        <a href="#page04" data-role="button" onclick="count(1)">按照老师的要求 </a>
+        <a href="#page04" data-role="button" onclick="count(2)">很喜欢，每次都酣畅淋漓</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>一定要诚实的回答问题哦！</h1>
+    </div>
+</div>
+
+<div data-role="page" id="page04">
+    <div data-role="header">
+        <h1>微仔运动测试</h1>
+    </div>
+
+    <div data-role="content">
+        <p>课余在室内的时间</p>
+        <a href="#page05" data-role="button" onclick="count(0)">宅着基本不出去</a>
+        <a href="#page05" data-role="button" onclick="count(1)">偶尔出去走走</a>
+        <a href="#page05" data-role="button" onclick="count(2)">很喜欢出去运动</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>一定要诚实的回答问题哦！</h1>
+    </div>
+</div>
+
+<div data-role="page" id="page05">
+    <div data-role="header">
+        <h1>微仔运动测试</h1>
+    </div>
+
+    <div data-role="content">
+        <p>最长进行什么体育项目</p>
+        <a href="#page06" data-role="button" onclick="count(0)">没有</a>
+        <a href="#page06" data-role="button" onclick="count(1)">篮球</a>
+        <a href="#page06" data-role="button" onclick="count(1)">足球</a>
+        <a href="#page06" data-role="button" onclick="count(1)">其他</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>一定要诚实的回答问题哦！</h1>
+    </div>
+</div>
+
+<div data-role="page" id="page06">
+    <div data-role="header">
+        <h1>微仔运动测试</h1>
+    </div>
+
+    <div data-role="content">
+        <p>你住在哪个地方呢？</p>
+        <a href="#page07" data-role="button" onclick="located(1)">韵苑</a>
+        <a href="#page07" data-role="button" onclick="located(2)">喻园</a>
+        <a href="#page07" data-role="button" onclick="located(3)">紫菘</a>
+    </div>
+
+    <div data-role="footer">
+        <h1>一定要诚实的回答问题哦！</h1>
+    </div>
+</div>
+
+<div data-role="page" id="page07">
+    <div data-role="header">
+        <h1>微仔运动测试</h1>
+    </div>
+
+    <div data-role="content">
+        <a data-role="button" onclick="result()">点我查看结果</a>
+
+        <p id="final" style="text-align: center;font-weight: bold"></p>
+    </div>
+
+    <div data-role="footer">
+        <h1>一定要诚实的回答问题哦！</h1>
+    </div>
+</div>
+</body>
+</html>
+\ No newline at end of file
